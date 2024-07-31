@@ -1,0 +1,267 @@
+header
+{
+  background-color: var(--rg-bg-dark-color);
+}
+
+header h1
+{
+  text-align: center;
+  padding: 50px;
+}
+
+main
+{
+  max-width: 1200px;
+  margin: auto;
+
+  padding: 10px;
+}
+
+section{
+  margin-top: 40px;
+}
+
+#introduction-container
+{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#introduction-text
+{
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 400px;
+}
+
+#introduction ul li::marker
+{
+  content: "■ ";
+}
+
+#interests-chart
+{
+
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 400px;
+
+  display: grid;
+
+  /* 
+    Definitions for the pie chart
+    modify the graph should be as simple as adjusting this values
+  */
+
+  /* colors */
+  --game-design-chart-color: rgb(51, 0, 102);
+  --programming-chart-color: rgb(135, 206, 250);
+  --graphics-chart-color: rgb(63, 39, 86);
+  --music-chart-color: rgb(255, 255, 255); /*rgb(11, 4, 23); */
+  --sound-chart-color: rgb(107, 142, 35);
+  --writing-chart-color:  rgb(255, 102, 0);/*rgb(0, 128, 0);/*
+
+  /* percentages */
+  --game-design-chart-percentage: 21%;
+  --programming-chart-percentage: 23%;
+  --graphics-chart-percentage: 21%;
+  --music-chart-percentage: 11%;
+  --sound-chart-percentage: 8%;
+  --writing-chart-percentage: 16%;
+
+  /* private vars: the (simple) math to render the graph */
+  --lower-bound-game-design: 0%;
+  --upper-bound-game-design: var(--game-design-chart-percentage);
+  
+  --lower-bound-programming: var(--upper-bound-game-design);
+  --upper-bound-programming: calc(var(--lower-bound-programming) + var(--programming-chart-percentage));
+
+  --lower-bound-graphics: var(--upper-bound-programming);
+  --upper-bound-graphics: calc(var(--lower-bound-graphics) + var(--graphics-chart-percentage));
+
+  --lower-bound-music: var(--upper-bound-graphics);
+  --upper-bound-music: calc(var(--lower-bound-music) + var(--music-chart-percentage));
+
+  --lower-bound-sound: var(--upper-bound-music);
+  --upper-bound-sound: calc(var(--lower-bound-sound) + var(--sound-chart-percentage));
+
+  --lower-bound-writing: var(--upper-bound-sound);
+  --upper-bound-writing: calc(var(--lower-bound-writing) + var(--writing-chart-percentage));
+}
+
+#interests-char-bottom-container
+{
+  grid-row: 2;
+  grid-column: 1;
+
+  display: flex;
+  flex-wrap: nowrap;
+
+  padding: 20px;
+
+  justify-content: center;
+  gap: 20px;
+
+  align-items: center;
+}
+
+#interest-chart-pie
+{
+  box-shadow:  0 0 7px rgba(255, 255, 255, 0.2);
+
+  transform: rotate(5deg);
+
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 120px;
+
+  min-height: 220px;
+  max-height: 220px;
+  min-width: 220px;
+  max-width: 220px;
+
+  border-radius: 50%;
+
+  filter: blur(0.5);
+
+  background: conic-gradient(
+  var(--game-design-chart-color) var(--lower-bound-game-design), var(--game-design-chart-color) var(--upper-bound-game-design),
+  var(--programming-chart-color) var(--lower-bound-programming), var(--programming-chart-color) var(--upper-bound-programming),
+  var(--graphics-chart-color) var(--lower-bound-graphics), var(--graphics-chart-color) var(--upper-bound-graphics),
+  var(--music-chart-color) var(--lower-bound-music), var(--music-chart-color) var(--upper-bound-music), 
+  var(--sound-chart-color) var(--lower-bound-sound), var(--sound-chart-color) var(--upper-bound-sound),
+  var(--writing-chart-color) var(--lower-bound-writing), var(--writing-chart-color) var(--upper-bound-writing)
+  );
+}
+
+#interest-chart-labels
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#interest-chart-labels li::marker
+{
+  text-shadow: none;
+}
+
+#interest-chart-label-game-design::marker
+{
+  color: var(--game-design-chart-color)
+}
+
+#interest-chart-label-programming::marker
+{
+  color: var(--programming-chart-color)
+}
+
+#interest-chart-label-graphics::marker
+{
+  color: var(--graphics-chart-color)
+}
+
+#interest-chart-label-music::marker
+{
+  color: var(--music-chart-color)
+}
+
+#interest-chart-label-sound::marker
+{
+  color: var(--sound-chart-color)
+}
+
+#interest-chart-label-writing::marker
+{
+  color: var(--writing-chart-color)
+}
+
+.cards-container
+{
+  padding: 10px;
+
+  display: grid;
+
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.card
+{
+  background-color: var(--bs-dark);
+  border: none;
+  border-radius: 5px;
+
+  padding: 10px;
+
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 350px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.card img
+{
+  margin: auto;
+
+  flex-grow: 150px;
+  flex-shrink: 1;
+  flex-basis: 150px;
+
+  max-width: 180px;
+}
+
+.card div
+{
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 300px;
+}
+
+.card-tags
+{
+  padding: 10px 0px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+#leslie-card
+{
+  grid-row: 1; 
+  grid-column: 1;
+}
+
+#leo-card
+{
+  grid-row: 2; 
+  grid-column: 1;
+}
+
+#fer-card
+{
+  grid-row: 3; 
+  grid-column: 1;
+}
+
+#diego-card
+{
+  grid-row: 4; 
+  grid-column: 1;
+}
+
+@media (max-width: 700px)
+{
+  section{
+    margin-top: 0px;
+  }
+}
