@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aniversario</title>
+  <title>ICI - 15 Aniversario</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <style>
@@ -36,6 +37,10 @@
     background: linear-gradient(330deg, #000, #000, var(--darker-third-color)) fixed;
   }
 
+  header{
+    padding-top: 100px;
+  }
+
   main {
     padding: 20px;
     display: flex;
@@ -55,15 +60,47 @@
     color: white;
   }
 
+  h4, h2{
+    color: white;
+    font-family: Josefin Sans, sans-serif;
+  }
+
   p {
     text-align: justify;
   }
 </style>
 
+<style>
+  .container-alumno {
+    display: flex;
+    padding: 5px;
+    margin: 20px;
+
+    border-bottom: 1px solid white;
+  }
+
+  .imagen-alumno{
+    max-width: 100px;
+  }
+
+  .texto-alumno {
+    text-align: justify;
+    padding-left: 10px;
+  }
+
+  span {
+    color: white;
+  }
+</style>
+
 <body>
-  <h1 style="max-width: 1000px; margin: auto;">
-    Celebración del 15º Aniversario de la Carrera de Ingeniería en Computación Inteligente de la UAA
-  </h1>
+  <header>
+    <!-- <img style="max-width: 100px; margin: auto;" src="logo_grande.png"/> -->
+    
+    <h1 style="max-width: 1000px; margin: auto;">
+      Celebración del 15º Aniversario de la Carrera de Ingeniería en Computación Inteligente de la UAA
+    </h1>
+  </header>
 
   <main>
     <p>
@@ -85,6 +122,36 @@
     <p>
       Miramos hacia el futuro con entusiasmo y compromiso, con la convicción de que seguiremos formando a los líderes del mañana en el campo de la inteligencia artificial. Estamos seguros de que los próximos años traerán aún más innovaciones, descubrimientos y éxitos para nuestra carrera.
     </p>
+
+    <p style="font-weight: bold;">¡Feliz 15º aniversario a la carrera de Ingeniería en Computación Inteligente de la UAA!</p>
+
+    <p style="font-weight: bolder;">Se lumen proferre.</p>
+
+    <h2 style="text-align: left; margin-top: 100px; width: 100%;">Alumnos</h2>
+    <div id="alumnos">
+      <div id="alumno-a" class="container-alumno">
+        <img class="imagen-alumno" src="logo_grande.png"/>
+        <div class="texto-alumno">
+          <h4>Lorem Ipusm dolor</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero illum aspernatur incidunt exercitationem, cumque qui architecto ex dolorum obcaecati deserunt quas inventore atque nemo repellat id ut. Rem, ipsa ducimus?
+          </p>
+        </div>
+      </div>
+
+      <div id="alumno-b" class="container-alumno">
+        <img class="imagen-alumno" src="logo_grande.png"/>
+        <div class="texto-alumno">
+          <h4>Lorem Ipusm dolor 2</h4>
+          <p>
+            2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero illum aspernatur incidunt exercitationem, cumque qui architecto ex dolorum obcaecati deserunt quas inventore atque nemo repellat id ut. Rem, ipsa ducimus?
+          </p>
+      </div>
+    </div>
+
+    <div style="text-align: center; width: 100%; padding: 40px;">
+      <p style="text-align: center;">Universidad Autónoma de Aguascalientes</p>
+    </div>
 </main>
 
 </body>
