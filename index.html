@@ -5,264 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ICI - 15 Aniversario</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Bootstrap -->
+  <link href="bootstrap-5.3.2-dist/css/bootstrap.min.css" rel="stylesheet"> 
+  <link rel="stylesheet" href="bootstrap-icons-1.11.3/font/bootstrap-icons.min.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <!-- Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    :root {
-      --sec-color: #ff8a44;
-      --darker-sec-color: #995329;
-      --main-color: #209198;
-      --darker-main-color: #1c5558;
-      --third-color: #004279;
-      --darker-third-color: #002c34;
-      --base-color: #ffffff;
-      --base-transition-color: #eeeeee;
-      --sistemas-main-color: #0f1035;
-      --sistemas-second-color: #365486;
-      --black-base-color: #000000;
-      --black-second-color: #31363f;
-    }
 
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      background: linear-gradient(330deg, #000, #000, var(--darker-third-color)) fixed;
-      margin: 0;
-      font-family: 'Josefin Sans', sans-serif;
-      color: #ffffff;
-    }
-
-    header {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .header-button {
-      padding: 10px 20px;
-      background-color: var(--sec-color);
-      color: var(--base-color);
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 5px;
-      transition: background-color 0.3s, color 0.3s;
-      margin-bottom: 10px;
-    }
-
-    .header-button:hover {
-      background-color: var(--darker-sec-color);
-      color: var(--base-color);
-    }
-
-    .header-logo {
-      max-width: 200px; /* Ajusta el tamaño según sea necesario */
-      margin-bottom: 20px;
-    }
-
-    .photo-gallery {
-      position: relative;
-      max-width: 100%;
-      margin: auto;
-      overflow: hidden;
-      border: 5px solid var(--main-color);
-      border-radius: 10px;
-    }
-
-    .photo-gallery img {
-      width: 100%;
-      height: 500px;
-      object-fit: cover;
-      display: none;
-      border-bottom: 5px solid var(--darker-main-color);
-    }
-
-    .photo-gallery img.active {
-      display: block;
-    }
-
-    section {
-  text-align: center;
-}
-
-
-    .arrow {
-      position: absolute;
-      top: 50%;
-      width: auto;
-      padding: 16px;
-      margin-top: -22px;
-      color: white;
-      font-weight: bold;
-      font-size: 24px;
-      cursor: pointer;
-      user-select: none;
-      background-color: rgba(0, 0, 0, 0.5);
-      border: none;
-      border-radius: 3px;
-    }
-
-    .arrow.left {
-      left: 10px;
-    }
-
-    .arrow.right {
-      right: 10px;
-    }
-
-    .center-text {
-      text-align: center;
-    }
-
-    main {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      align-items: center;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    h1, h2, h4, p {
-      color: white;
-      text-align: center;
-    }
-
-    h1 {
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    p {
-      text-align: justify;
-    }
-
-    .container-alumno {
-      display: flex;
-      align-items: center;
-      padding: 20px;
-      margin: 20px;
-      border: 2px solid var(--main-color);
-      border-radius: 12px;
-      background-color: var(--black-second-color);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-      overflow: hidden;
-    }
-
-    .container-alumno:hover {
-      transform: scale(1.02);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-    }
-
-    .imagen-alumno {
-      max-width: 120px;
-      border-radius: 8px;
-      margin-right: 20px;
-    }
-
-    .texto-alumno {
-      flex: 1;
-    }
-
-    footer {
-      background-color: var(--black-second-color);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-      width: 100%;
-      position: relative;
-      bottom: 0;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .social-icons {
-      margin: 20px 0;
-    }
-
-    .social-icons a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: white;
-      font-size: 30px;
-      transition: color 0.3s;
-    }
-
-    .social-icons a:hover {
-      color: var(--sec-color);
-    }
-
-    #site-footer-t1 {
-      display: block;
-      margin-top: 10px;
-    }
-
-    /* Modal Styles */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-    }
-
-    .modal-content {
-      background-color: rgb(20, 19, 19);
-      margin: 15% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      max-width: 800px;
-      border-radius: 10px;
-      color: #000;
-    }
-
-    .modal-header {
-      padding: 2px 16px;
-      background-color: var(--main-color);
-      color: #fff;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-    }
-
-    .modal-body {
-      padding: 2px 16px;
-    }
-
-    .modal-footer {
-      padding: 2px 16px;
-      background-color: var(--main-color);
-      color: #fff;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      text-align: right;
-    }
-
-    .close {
-      color: white;
-      font-size: 28px;
-      font-weight: bold;
-      border: none;
-      background: none;
-      cursor: pointer;
-    }
-
-    .close:hover,
-    .close:focus {
-      color: #000;
-      text-decoration: none;
-    }
-  </style>
+  <!-- Site -->
+  <link rel="stylesheet" href="index.css"/>
 </head>
 <body>
   <!-- Modal -->
@@ -326,23 +81,92 @@
     <section>
       <a href="https://exactas.congresouaaccb.com/ICI" class="header-button">Volver al sitio</a>
 
-      <h2>Alumnos Destacados</h2>
-      <div class="container-alumno">
-        <img src="https://via.placeholder.com/120" class="imagen-alumno" alt="Alumno 1">
-        <div class="texto-alumno">
-          <h4>Alumno Destacado 1</h4>
-          <p>Descripción del alumno destacado 1 y sus logros en la carrera.</p>
+      <h2 style="margin-top: 20px;">Alumnos Destacados</h2>
+
+      <div id="grid-alumnos">
+        <div class="container-alumno">
+          <img src="https://via.placeholder.com/120" class="imagen-alumno" alt="Alumno 1">
+          <div class="info-alumno">
+            <h4>Alumno Destacado 1</h4>
+            <p>Descripción del alumno destacado 1 y sus logros en la carrera.</p>
+          </div>
         </div>
-      </div>
-      <div class="container-alumno">
-        <img src="https://via.placeholder.com/120" class="imagen-alumno" alt="Alumno 2">
-        <div class="texto-alumno">
-          <h4>Alumno Destacado 2</h4>
-          <p>Descripción del alumno destacado 2 y sus logros en la carrera.</p>
+        <div class="container-alumno">
+          <img src="https://via.placeholder.com/120" class="imagen-alumno" alt="Alumno 2">
+          <div class="info-alumno">
+            <h4>Alumno Destacado 2</h4>
+            <p>Descripción del alumno destacado 2 y sus logros en la carrera.</p>
+          </div>
+        </div>
+        <div class="container-alumno">
+          <img src="https://via.placeholder.com/120" class="imagen-alumno" alt="Alumno 2">
+          <div class="info-alumno">
+            <h4>Alumno Destacado 3</h4>
+            <p>Descripción del alumno destacado 3 y sus logros en la carrera.</p>
+          </div>
+        </div>
+        <div class="container-alumno">
+          <img src="https://via.placeholder.com/120" class="imagen-alumno" alt="Alumno 2">
+          <div class="info-alumno">
+            <h4>Alumno Destacado 4</h4>
+            <p>Descripción del alumno destacado 4 y sus logros en la carrera.</p>
+          </div>
+        </div>
+        <div class="container-alumno">
+          <img src="https://via.placeholder.com/120" class="imagen-alumno" alt="Alumno 2">
+          <div class="info-alumno">
+            <h4>Alumno Destacado 5</h4>
+            <p>Descripción del alumno destacado 5 y sus logros en la carrera.</p>
+          </div>
+        </div>
+        <div class="container-alumno">
+          <img src="https://via.placeholder.com/120" class="imagen-alumno" alt="Alumno 2">
+          <div class="info-alumno">
+            <h4>Alumno Destacado 6</h4>
+            <p>Descripción del alumno destacado 6 y sus logros en la carrera.</p>
+          </div>
+        </div>
+        <div class="container-alumno">
+          <img src="https://via.placeholder.com/120" class="imagen-alumno" alt="Alumno 2">
+          <div class="info-alumno">
+            <h4>Alumno Destacado 7</h4>
+            <p>Descripción del alumno destacado 7 y sus logros en la carrera.</p>
+          </div>
+        </div>
+        <div class="container-alumno">
+          <img src="https://via.placeholder.com/120" class="imagen-alumno" alt="Alumno 2">
+          <div class="info-alumno">
+            <h4>Alumno Destacado 8</h4>
+            <p>Descripción del alumno destacado 8 y sus logros en la carrera.</p>
+          </div>
+        </div>
+        <div class="container-alumno">
+          <img src="https://via.placeholder.com/120" class="imagen-alumno" alt="Alumno 2">
+          <div class="info-alumno">
+            <h4>Alumno Destacado 9</h4>
+            <p>Descripción del alumno destacado 9 y sus logros en la carrera.</p>
+          </div>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Modal Info Alumno -->
+  <div id="modal-info-alumno" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="info-alumno-titulo">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="info-alumno-descripcion"></p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <div class="footer-content">
@@ -358,29 +182,6 @@
     </div>
   </footer>
 
-  <script>
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.photo-gallery img');
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-    }
-
-    function moveSlide(step) {
-      slideIndex = (slideIndex + step + slides.length) % slides.length;
-      showSlide(slideIndex);
-    }
-
-    document.querySelector('.close').onclick = () => {
-      document.getElementById('myModal').style.display = 'none';
-    };
-
-    // Show the modal on page load
-    window.onload = () => {
-      document.getElementById('myModal').style.display = 'block';
-    };
-  </script>
+  <script src="index.js"></script>
 </body>
 </html>
