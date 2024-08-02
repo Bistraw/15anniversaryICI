@@ -5,24 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ICI - 15 Aniversario</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     :root {
       --sec-color: #ff8a44;
       --darker-sec-color: #995329;
       --main-color: #209198;
       --darker-main-color: #1c5558;
-      --nav-color: #209198;
-      --nav-main-color: #1c5558;
       --third-color: #004279;
       --darker-third-color: #002c34;
       --base-color: #ffffff;
       --base-transition-color: #eeeeee;
       --sistemas-main-color: #0f1035;
       --sistemas-second-color: #365486;
-      --fc-event-border-color: #0000;
-      --fc-event-bg-color: #0000;
-      --fc-today-bg-color: #eee2;
-      --fc-list-event-hover-bg-color: #0596;
       --black-base-color: #000000;
       --black-second-color: #31363f;
     }
@@ -34,10 +29,90 @@
       background: linear-gradient(330deg, #000, #000, var(--darker-third-color)) fixed;
       margin: 0;
       font-family: 'Josefin Sans', sans-serif;
+      color: #ffffff;
     }
 
     header {
-      padding-top: 100px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .header-button {
+      padding: 10px 20px;
+      background-color: var(--sec-color);
+      color: var(--base-color);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+      margin-bottom: 10px;
+    }
+
+    .header-button:hover {
+      background-color: var(--darker-sec-color);
+      color: var(--base-color);
+    }
+
+    .header-logo {
+      max-width: 200px; /* Ajusta el tamaño según sea necesario */
+      margin-bottom: 20px;
+    }
+
+    .photo-gallery {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+      overflow: hidden;
+      border: 5px solid var(--main-color);
+      border-radius: 10px;
+    }
+
+    .photo-gallery img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: none;
+      border-bottom: 5px solid var(--darker-main-color);
+    }
+
+    .photo-gallery img.active {
+      display: block;
+    }
+
+    section {
+  text-align: center;
+}
+
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 24px;
+      cursor: pointer;
+      user-select: none;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      border-radius: 3px;
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+
+    .center-text {
       text-align: center;
     }
 
@@ -45,7 +120,7 @@
       padding: 20px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 40px;
       align-items: center;
       max-width: 1200px;
       margin: auto;
@@ -67,32 +142,60 @@
 
     .container-alumno {
       display: flex;
-      padding: 5px;
+      align-items: center;
+      padding: 20px;
       margin: 20px;
-      border-bottom: 1px solid white;
+      border: 2px solid var(--main-color);
+      border-radius: 12px;
+      background-color: var(--black-second-color);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      overflow: hidden;
+    }
+
+    .container-alumno:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
     }
 
     .imagen-alumno {
-      max-width: 100px;
+      max-width: 120px;
+      border-radius: 8px;
+      margin-right: 20px;
     }
 
     .texto-alumno {
-      text-align: justify;
-      padding-left: 10px;
+      flex: 1;
     }
 
     footer {
+      background-color: var(--black-second-color);
+      color: white;
       text-align: center;
-      padding: 40px;
+      padding: 40px 20px;
+      width: 100%;
+      position: relative;
+      bottom: 0;
     }
 
-    footer a {
-      margin: 0 10px;
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .social-icons {
+      margin: 20px 0;
+    }
+
+    .social-icons a {
+      margin: 0 15px;
       text-decoration: none;
       color: white;
+      font-size: 30px;
+      transition: color 0.3s;
     }
 
-    footer a:hover {
+    .social-icons a:hover {
       color: var(--sec-color);
     }
 
@@ -100,72 +203,184 @@
       display: block;
       margin-top: 10px;
     }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+    }
+
+    .modal-content {
+      background-color: rgb(20, 19, 19);
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 800px;
+      border-radius: 10px;
+      color: #000;
+    }
+
+    .modal-header {
+      padding: 2px 16px;
+      background-color: var(--main-color);
+      color: #fff;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .modal-body {
+      padding: 2px 16px;
+    }
+
+    .modal-footer {
+      padding: 2px 16px;
+      background-color: var(--main-color);
+      color: #fff;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      text-align: right;
+    }
+
+    .close {
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
+  <!-- Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Celebración del 15º Aniversario</h2>
+      </div>
+      <div class="modal-body">
+        <p>
+          Hoy celebramos con gran orgullo el 15º aniversario de la carrera de Ingeniería en Computación Inteligente de la Universidad Autónoma de Aguascalientes (UAA). Desde su creación, nuestra carrera ha sido un faro de excelencia académica y profesional, formando ingenieros altamente capacitados que contribuyen significativamente a la evolución de la tecnología y la industria del software a nivel nacional e internacional.
+        </p>
+        <p>
+          Durante estos años, la Ingeniería en Computación Inteligente ha demostrado ser una plataforma de formación integral, proporcionando a nuestros estudiantes una sólida base en matemáticas, ciencias de la computación, inteligencia artificial y desarrollo de software. Este enfoque ha permitido a nuestros egresados enfrentar desafíos complejos y ofrecer soluciones innovadoras que impactan positivamente en diversos sectores.
+        </p>
+        <p>
+          Además de participar en proyectos de vanguardia que abarcan desde la investigación en inteligencia artificial hasta el desarrollo de software de alto impacto, nuestros estudiantes y egresados han sido reconocidos por su colaboración en proyectos con instituciones de prestigio y su participación en competiciones nacionales e internacionales. Este éxito es testimonio del compromiso y la dedicación de nuestra comunidad académica.
+        </p>
+        <p>
+          En este aniversario, queremos expresar nuestro agradecimiento a todos los miembros de la comunidad de la UAA que han contribuido al crecimiento y éxito de la carrera. A los estudiantes, egresados, docentes y personal administrativo, gracias por su arduo trabajo, dedicación y pasión por la excelencia.
+        </p>
+        <p>
+          Miramos hacia el futuro con entusiasmo y compromiso, con la convicción de que seguiremos formando a los líderes del mañana en el campo de la inteligencia artificial. Estamos seguros de que los próximos años traerán aún más innovaciones, descubrimientos y éxitos para nuestra carrera.
+        </p>
+        <p class="center-text"><strong>¡Feliz 15º aniversario a la carrera de Ingeniería en Computación Inteligente de la UAA!</strong></p>
+        <p class="center-text"><strong>Se lumen proferre.</strong></p>
+      </div>
+    </div>
+  </div>
+
   <header>
-    <h1>
-      Celebración del 15º Aniversario de la Carrera de Ingeniería en Computación Inteligente de la UAA
-    </h1>
+    <h1>15º Aniversario</h1>
+    <h1>Ingeniería en Computación Inteligente</h1>
   </header>
 
   <main>
-    <p>
-      Hoy celebramos con gran orgullo el 15º aniversario de la carrera de Ingeniería en Computación Inteligente de la Universidad Autónoma de Aguascalientes (UAA). Desde su creación, nuestra carrera ha sido un faro de excelencia académica y profesional, formando ingenieros altamente capacitados que contribuyen significativamente a la evolución de la tecnología y la industria del software a nivel nacional e internacional.
-    </p>
     
-    <p>
-      Durante estos años, la Ingeniería en Computación Inteligente ha demostrado ser una plataforma de formación integral, proporcionando a nuestros estudiantes una sólida base en matemáticas, ciencias de la computación, inteligencia artificial y desarrollo de software. Este enfoque ha permitido a nuestros egresados enfrentar desafíos complejos y ofrecer soluciones innovadoras que impactan positivamente en diversos sectores.
-    </p>
-      
-    <p>
-      Además de participar en proyectos de vanguardia que abarcan desde la investigación en inteligencia artificial hasta el desarrollo de software de alto impacto, nuestros estudiantes y egresados han sido reconocidos por su colaboración en proyectos con instituciones de prestigio y su participación en competiciones nacionales e internacionales. Este éxito es testimonio del compromiso y la dedicación de nuestra comunidad académica.
-    </p>
-      
-    <p>
-      En este aniversario, queremos expresar nuestro agradecimiento a todos los miembros de la comunidad de la UAA que han contribuido al crecimiento y éxito de la carrera. A los estudiantes, egresados, docentes y personal administrativo, gracias por su arduo trabajo, dedicación y pasión por la excelencia.
-    </p>
-      
-    <p>
-      Miramos hacia el futuro con entusiasmo y compromiso, con la convicción de que seguiremos formando a los líderes del mañana en el campo de la inteligencia artificial. Estamos seguros de que los próximos años traerán aún más innovaciones, descubrimientos y éxitos para nuestra carrera.
-    </p>
-
-    <p style="font-weight: bold;">¡Feliz 15º aniversario a la carrera de Ingeniería en Computación Inteligente de la UAA!</p>
-
-    <p style="font-weight: bolder;">Se lumen proferre.</p>
-
-    <h2>Alumnos</h2>
-    <div id="alumnos">
-      <div id="alumno-a" class="container-alumno">
-        <img class="imagen-alumno" src="logo_grande.png" alt="Imagen Alumno A"/>
-        <div class="texto-alumno">
-          <h4>Lorem Ipusm dolor</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero illum aspernatur incidunt exercitationem, cumque qui architecto ex dolorum obcaecati deserunt quas inventore atque nemo repellat id ut. Rem, ipsa ducimus?
-          </p>
-        </div>
-      </div>
-
-      <div id="alumno-b" class="container-alumno">
-        <img class="imagen-alumno" src="logo_grande.png" alt="Imagen Alumno B"/>
-        <div class="texto-alumno">
-          <h4>Lorem Ipusm dolor 2</h4>
-          <p>
-            2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero illum aspernatur incidunt exercitationem, cumque qui architecto ex dolorum obcaecati deserunt quas inventore atque nemo repellat id ut. Rem, ipsa ducimus?
-          </p>
-        </div>
-      </div>
+    <div class="photo-gallery">
+      <img src="https://scontent.fagu4-1.fna.fbcdn.net/v/t39.30808-6/273007541_4892665377448187_6994081993388740877_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHXsCv0Ml4I0FSH1k5QfiPm3v0gcjMlIP7e_SByMyUg_vivmP_Y98i-qAOxyABJCN1y6DliuXKEYJTIi3zFtunN&_nc_ohc=G1nj2YyMLmAQ7kNvgEUn5QP&_nc_ht=scontent.fagu4-1.fna&gid=AbY1J9H4MdxyAL-UTFzyoqC&oh=00_AYCcvPsfPInLgu0k4KMCD4JX84IRm1KH2hH0-UNL8awq1A&oe=66B1E0D7" class="active" alt="Imagen 1">
+      <img src="https://www.uaa.mx/portal/wp-content/uploads/2019/10/Y6A5209-1024x683.jpg" alt="Imagen 2">
+      <img src="https://scontent.fagu4-1.fna.fbcdn.net/v/t1.18169-9/1238315_631247956905944_1422177813_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=0327a3&_nc_eui2=AeFZ9JSLD8k66Dc1GJsajt3FwD-Blq-4PifAP4GWr7g-Jxq53qEgtQaCgFZq3ROiaqtiResEPXp2qaJxexmcnu-n&_nc_ohc=AdtKBtgpL70Q7kNvgHZMdok&_nc_ht=scontent.fagu4-1.fna&gid=A9b7C2Djmx-jC_lNTnAhf16&oh=00_AYDNZQGxay0SMgLRnmuJGsX2vkloGSsJu34FNL8qTZdwWA&oe=66D3956C" alt="Imagen 3">
+      <img src="https://scontent.fagu4-1.fna.fbcdn.net/v/t31.18172-8/1781722_732842106746528_2119445992_o.jpg?_nc_cat=110&ccb=1-7&_nc_sid=0327a3&_nc_eui2=AeFYGTYpPn8rjyeTVCgyXT_QWXehofyPwVJZd6Gh_I_BUs3rJQ4QeKku6WpvuKwFpxxnd_atXyWhfkdzo3d-EG3F&_nc_ohc=mPfD-FKkn6sQ7kNvgGHflCy&_nc_ht=scontent.fagu4-1.fna&gid=AQTfYimrABBlIs0u4hZ3Ki2&oh=00_AYCfDWnT2XJwLC47kQPnvtuoQwea77LkBvGn7s7o-LVp8w&oe=66D37A59" alt="Imagen 4">
+      <img src="https://scontent.fagu4-1.fna.fbcdn.net/v/t31.18172-8/1277902_636908576339882_955098601_o.jpg?_nc_cat=104&ccb=1-7&_nc_sid=0327a3&_nc_eui2=AeHx5ViJ0qx9HFjiM7R4HXC901MA_URNk3DTUwD9RE2TcB8o8uZJATvuCTzgxatVoBwWbQ1W6npXhOvZpRu0fn8W&_nc_ohc=osYZqlVTjzEQ7kNvgFqpxsW&_nc_ht=scontent.fagu4-1.fna&gid=ANmtYYAaTs2IMJ5wJAeD-44&oh=00_AYDSeCQRQxmPUPwMQdoui73eAqBDaONEizmlu_2cQe0bWw&oe=66D39F00" alt="Imagen 5">
+      <img src="https://scontent.fagu4-1.fna.fbcdn.net/v/t1.18169-9/1176312_636684456362294_516854883_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=0327a3&_nc_eui2=AeGYOqOb-JUDEmOmM30VhwedBFnNLrySDy0EWc0uvJIPLTSVzleO12PTGaUM-y8vr-qAttJSCAUwzRyvGPMT7tnn&_nc_ohc=kbfES1I2-fAQ7kNvgE-0SvZ&_nc_ht=scontent.fagu4-1.fna&gid=ApFSVGTSfRrh04RY3gHIy1K&oh=00_AYA5jirwhWNNBeztbflIIh64-9bmr5fRB07AS-OKgksbRA&oe=66D37B50" alt="Imagen 6">
+      <img src="https://scontent.fagu4-1.fna.fbcdn.net/v/t31.18172-8/459017_430409883656420_536585905_o.jpg?_nc_cat=100&ccb=1-7&_nc_sid=0327a3&_nc_eui2=AeEEeH67ejks_CHYHyaG9EOMWLvAmP0UdK1Yu8CY_RR0rVSGaHpxMdLC3Rcoq51omNyweumB6BfMoCZXvyIvwxWs&_nc_ohc=QLDrvmVNtTgQ7kNvgF0NMAR&_nc_ht=scontent.fagu4-1.fna&gid=A17NKwqIzJt9WJSMIgBIImK&oh=00_AYClvZX8724-2v4NHht6T4MJGrp6Y4kYSQY_QNiJs5pcQw&oe=66D37D51" alt="Imagen 7">
+      <img src="https://media.licdn.com/dms/image/D5622AQEp9biNHWxwhA/feedshare-shrink_2048_1536/0/1685833314947?e=1725494400&v=beta&t=a_cJNAsLuroT3pLft6IvjxmVxQPU87OJRa7FlouZrEI" alt="Imagen 8">
+      <img src="https://via.placeholder.com/1200x500?text=Foto+3" alt="Imagen 9">
+      <img src="https://via.placeholder.com/1200x500?text=Foto+3" alt="Imagen 10">
+      <img src="https://via.placeholder.com/1200x500?text=Foto+3" alt="Imagen 11">
+      <img src="https://via.placeholder.com/1200x500?text=Foto+3" alt="Imagen 12">
+      <img src="https://via.placeholder.com/1200x500?text=Foto+3" alt="Imagen 13">
+      <img src="https://via.placeholder.com/1200x500?text=Foto+3" alt="Imagen 14">
+      <img src="https://via.placeholder.com/1200x500?text=Foto+3" alt="Imagen 15">
+      <img src="https://via.placeholder.com/1200x500?text=Foto+3" alt="Imagen 16">
+      <img src="https://via.placeholder.com/1200x500?text=Foto+3" alt="Imagen 17">
+      <button class="arrow left" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="arrow right" onclick="moveSlide(1)">&#10095;</button>
     </div>
 
-    <footer>
-      <div>
-        <a class="bi-linkedin" href="https://www.linkedin.com/school/uaamx/posts/?feedView=all" target="_blank">LinkedIn</a>
-        <a class="bi-instagram" href="https://www.instagram.com/uaa_mx/?hl=en" target="_blank">Instagram</a>
-        <a class="bi-youtube" href="https://www.youtube.com/@UAAmx1" target="_blank">YouTube</a>
-        <a class="bi-twitter-x" href="https://x.com/uaa_mx?lang=en" target="_blank">Twitter</a>
+    <section>
+      <a href="https://exactas.congresouaaccb.com/ICI" class="header-button">Volver al sitio</a>
+
+      <h2>Alumnos Destacados</h2>
+      <div class="container-alumno">
+        <img src="https://via.placeholder.com/120" class="imagen-alumno" alt="Alumno 1">
+        <div class="texto-alumno">
+          <h4>Alumno Destacado 1</h4>
+          <p>Descripción del alumno destacado 1 y sus logros en la carrera.</p>
+        </div>
       </div>
-      <span id="site-footer-t1">© 2024 Todos los derechos reservados.</span>
-    </footer>
+      <div class="container-alumno">
+        <img src="https://via.placeholder.com/120" class="imagen-alumno" alt="Alumno 2">
+        <div class="texto-alumno">
+          <h4>Alumno Destacado 2</h4>
+          <p>Descripción del alumno destacado 2 y sus logros en la carrera.</p>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="footer-content">
+
+      <img src="https://docentes.uaa.mx/wp-content/uploads/sites/2/nggallery/logos-uaa/uaa-footer.png" alt="Logo de la UAA" class="header-logo">
+
+      <div class="social-icons">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-linkedin-in"></a>
+      </div>
+      <p id="site-footer-t1" class="center-text">© 2024 Universidad Autónoma de Aguascalientes. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.photo-gallery img');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+
+    function moveSlide(step) {
+      slideIndex = (slideIndex + step + slides.length) % slides.length;
+      showSlide(slideIndex);
+    }
+
+    document.querySelector('.close').onclick = () => {
+      document.getElementById('myModal').style.display = 'none';
+    };
+
+    // Show the modal on page load
+    window.onload = () => {
+      document.getElementById('myModal').style.display = 'block';
+    };
+  </script>
 </body>
 </html>
