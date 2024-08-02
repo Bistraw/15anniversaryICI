@@ -31,12 +31,14 @@ for (let i = 0; i < alumnos.length; i++)
 
     let nombre = alumnos[i].querySelector(".info-alumno > h4").textContent;
     let descripcion = alumnos[i].querySelector(".info-alumno > p").textContent;
+    let imagen = alumnos[i].querySelector(".imagen-alumno").src;
+
+    console.log(nombre, descripcion, imagen);
 
     document.getElementById("info-alumno-titulo").textContent = nombre;
     document.getElementById("info-alumno-descripcion").textContent = descripcion;
+    document.getElementById("info-alumno-imagen").src = imagen;
 
     $("#modal-info-alumno").modal("show");
-
-    console.log(nombre, descripcion);
   }
 } 
