@@ -112,8 +112,10 @@ section {
   right: 10px;
 }
 
-.center-text {
+.footer-text {
   text-align: center;
+  font-size: 0.8rem;
+  margin-bottom: 0;
 }
 
 main {
@@ -258,6 +260,15 @@ footer {
 }
 
 /* estilos para el flex-box de alumnos */
+.alumnos-section {
+  margin-bottom: 6rem;
+}
+
+.alumnos-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
 #grid-alumnos {
   display: flex;
   flex-wrap: wrap;
