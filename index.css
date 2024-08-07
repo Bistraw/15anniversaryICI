@@ -32,18 +32,23 @@ header {
   text-align: center;
 }
 
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
 .header-button {
-  padding: 10px 20px;
-  background-color: var(--sec-color);
+  padding: 0.5rem 1.5rem;
+  background-color: var(--main-color);
   color: var(--base-color);
   text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: normal;
+  border-radius: 10px;
   transition:
     background-color 0.3s,
     color 0.3s;
-  margin-bottom: 10px;
+  margin-bottom: 4rem;
 }
 
 .header-button:hover {
@@ -63,6 +68,8 @@ header {
   overflow: hidden;
   border: 5px solid var(--main-color);
   border-radius: 10px;
+
+  margin-bottom: 4rem;
 }
 
 .photo-gallery img {
@@ -210,7 +217,7 @@ footer {
 
 .modal-title {
   font-size: 32px;
-  font-weight: bold;
+  font-weight: normal;
 
   flex-grow: 1;
   text-align: center;
@@ -218,6 +225,7 @@ footer {
 
 .modal-body {
   padding: 2rem;
+  font-weight: thin;
 }
 
 .modal-footer {
@@ -238,8 +246,8 @@ footer {
   cursor: pointer;
 
   position: absolute;
-  right: 0;
-  margin-right: 2rem;
+  left: 0;
+  margin-left: 2rem;
   cursor: pointer;
 }
 
@@ -292,4 +300,3 @@ footer {
   flex: 1;
   display: none;
 }
-
