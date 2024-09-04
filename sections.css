@@ -1,0 +1,37 @@
+
+section
+{
+  max-width: 1200px;
+  margin: auto;
+
+  display: flex;
+
+  justify-content: center;
+  gap: 20px;
+}
+
+section .img-block {
+  --img-block-size: 100px;
+  height: var(--img-block-img-size);
+  width: var(--img-block-img-size);
+
+  display: flex;
+}
+
+section .img-block img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+section .text-block, section .text-block h1 {
+  text-align: left;
+}
+
+section .text-block, section .text-block h1 {
+  margin-bottom: 20px;
+}
+
+.header-logo {
+  max-width: 50px; /* Ajusta el tamaño según sea necesario */
+  margin-bottom: 20px;
+}
