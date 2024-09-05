@@ -87,6 +87,7 @@ header {
     header .titulo-container {
       text-align: center;
       border-left: none;
+      padding-left: 0px;
     }
 
     header .titulo-container .subtitulo  {
