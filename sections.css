@@ -7,15 +7,23 @@ section
   display: flex;
 
   justify-content: center;
-  gap: 20px;
+  gap: 40px;
+}
+
+section.alt{
+  flex-direction: row-reverse;
 }
 
 section .img-block {
-  --img-block-size: 100px;
+  --img-block-size: 500px;
   height: var(--img-block-img-size);
   width: var(--img-block-img-size);
 
+  /* width: 100%; */
+  
+
   display: flex;
+  align-items: center;
 }
 
 section .img-block img {
@@ -24,14 +32,29 @@ section .img-block img {
 }
 
 section .text-block, section .text-block h1 {
-  text-align: left;
+  /* text-align: left; */
 }
 
 section .text-block, section .text-block h1 {
   margin-bottom: 20px;
 }
 
+section .text-block p {
+  text-align: justify;
+}
+
 .header-logo {
   max-width: 50px; /* Ajusta el tamaño según sea necesario */
   margin-bottom: 20px;
+}
+
+@media (max-width: 700px) {
+  section {
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  section .text-block {
+    align-self: center;
+  }
 }
